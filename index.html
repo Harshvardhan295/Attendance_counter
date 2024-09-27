@@ -9,10 +9,16 @@
 <body>
     <div class="container">
         <h1>Student Attendance Counter</h1>
-        <h2 id="count-el">0</h2>
-        <button id="increment-btn" onclick="increment()">INCREMENT</button>
-        <button id="save-btn" onclick="save()">SAVE</button>
-        <p id="save-el">Recorded Attendance: </p>
+        <div class="input-group">
+            <p id="num-el">Number of Students in Class:</p>
+            <input id="total-el" type="number" min="1" placeholder="Enter total students">
+        </div>
+        <button id="enter-btn" onclick="storeTotal()">Enter</button>
+
+        <h2 id="count-el">Roll Number: 1</h2>
+        <button id="increment-btn" onclick="increment()">Present</button>
+        <button id="display-btn" onclick="save()">Absent</button>
+        <p id="display-el">Absent Roll Numbers: </p>
     </div>
     <script src="index.js"></script>
 </body>
