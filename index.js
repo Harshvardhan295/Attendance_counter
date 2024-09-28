@@ -7,32 +7,39 @@ let count = 1;
 let presentStudents = []; 
 
 function storeTotal() {
-    totalEl = parseInt(totalElInput.value); 
+    totalEl = parseInt(totalElInput.value);
+    if (isNaN(totalEl) || totalEl <= 0) {
+        alert("Please enter a valid number of students.");
+        return;
+    }
     count = 1; 
     countEl.textContent = "Roll Number: " + count; 
     displayEl.textContent = "Absent Roll Numbers: "; 
     presentStudents = []; 
 }
 
-function increment() {
+function Present() {
     if (count <= totalEl) {
         presentStudents.push(count); 
         count += 1; 
         countEl.textContent = "Roll Number: " + count; 
     } else {
-        alert("Roll Number " + count + " does not exist. You have taken the attendance of all students.");
+        alert("You have taken attendance for all students.");
+        displayEl.textContent = "All students are present.";
     }
 }
 
-function save() {
-    if (count > totalEl) {
-        highlightAbsentNumbers(); 
-    } else if (count >= 1) { // Exclude the initial roll number
-        let countStr = (count) + " , "; // Store the last valid count
-        displayEl.textContent += countStr; 
+function Absent() {
+    if (count <= totalEl) { 
+        displayEl.textContent += count + " , "; 
         count += 1; 
         countEl.textContent = "Roll Number: " + count; 
-    } 
+    }
+    
+    if (count > totalEl) {
+        alert("You have taken attendance for all students.");
+        highlightAbsentNumbers();
+    }
 }
 
 function highlightAbsentNumbers() {
@@ -42,9 +49,10 @@ function highlightAbsentNumbers() {
             absentNumbers.push(i); 
         }
     }
-    if (absentNumbers.length ===0) {
-    displayEl.textContent = "All students are present.";
-    }else {
+    
+    if (absentNumbers.length === 0) {
+        displayEl.textContent = "All students are present.";
+    } else {
         displayEl.textContent = "Absent Roll Numbers: " + absentNumbers.join(", ");
     } 
 }
