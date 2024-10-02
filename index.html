@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="container">
+    <main class="container">
         <h1>Student Attendance Counter</h1>
-        <div class="input-group">
-            <p id="num-el">Number of Students in Class:</p>
-            <input id="total-el" type="number" min="1" placeholder="Enter total students">
-        </div>
+        <section class="input-group">
+            <label for="total-el">Number of Students in Class:</label>
+            <input id="total-el" type="number" min="1" placeholder="Enter total students" aria-label="Total Students">
+        </section>
         <button id="enter-btn" onclick="storeTotal()">Enter</button>
 
-        <h2 id="count-el">Roll Number: 1</h2>
+        <h2 id="count-el" aria-live="polite">Roll Number: 1</h2>
         <button id="increment-btn" onclick="Present()">Present</button>
         <button id="display-btn" onclick="Absent()">Absent</button>
         <p id="display-el">Absent Roll Numbers: </p>
-    </div>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>
